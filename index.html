@@ -9,9 +9,13 @@
 <body>
 
 
-	<div id="app">
+	<div id="app" v-if="app">
 		<h1>Hello World!</h1>
-		<h2>{{ image }}</h2>
+		<p>{{ title[1] }}</p>
+		<p>{{ image[1] }}</p>
+		<img src="" alt="" v-bind:src='image[1]'>
+		<p>{{ description[1] }}</p>
+
 		<div></div>
 
 	</div>
