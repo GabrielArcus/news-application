@@ -23,6 +23,7 @@
 				<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
 				<h2>{{ item.title }}</h2>
 				<h3>{{ item.author }}</h3>
+				<a v-bind:href="item.url" target="_blank">View Article</a>
 			</li>
 		</ul>
 
