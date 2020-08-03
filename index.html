@@ -10,13 +10,21 @@
 
 
 	<div id="app" v-if="app">
-		<h1>Hello World!</h1>
-		<p>{{ title[1] }}</p>
-		<p>{{ image[1] }}</p>
-		<img src="" alt="" v-bind:src='image[1]'>
-		<p>{{ description[1] }}</p>
+		<!-- <h1>Hello World!</h1> -->
+		<!-- <p>{{ title[1] }}</p> -->
+		<!-- <p>{{ image[1] }}</p> -->
+		<!-- <img src="" alt="" v-bind:src='image[1]'> -->
+		<!-- <p>{{ description[1] }}</p> -->
 
 		<div></div>
+
+		<ul>
+			<li v-for="item in news" :key="item.message" style="list-style:none; margin-bottom:5%; width:60%; border-bottom:2px solid darkgrey;">
+				<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
+				<h2>{{ item.title }}</h2>
+				<h3>{{ item.author }}</h3>
+			</li>
+		</ul>
 
 	</div>
 

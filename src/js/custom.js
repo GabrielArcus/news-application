@@ -9,6 +9,7 @@ var axios = require('axios');
 		el: '#app',
 		data: {
 			newsData: false,
+			news: false,
 			title: false,
 			image: false,
 			description: false
@@ -25,7 +26,7 @@ var axios = require('axios');
 				app.newsData = response;
 				console.log(app.newsData);
 				console.log('jdsjkadshjkadshjkads');
-
+				app.news = response.data.articles;
 				getImage();
 				getTitle();
 				getDesc();
