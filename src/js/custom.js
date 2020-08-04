@@ -12,20 +12,58 @@ var axios = require('axios');
 			news: false,
 			title: false,
 			image: false,
-			description: false
+			description: false,
+			newsCatagory: {
+				country: 'nz',
+				catagory: 'business'
+			}
+		},
+		methods: {
+			usCatagory: function () {
+				app.newsCatagory.country = 'us'
+				axiosRequest()
+			},
+			business: function () {
+				app.newsCatagory.catagory = 'business'
+				axiosRequest()
+			},
+			entertainment: function () {
+				app.newsCatagory.catagory = 'entertainment'
+				axiosRequest()
+			},
+			general: function () {
+				app.newsCatagory.catagory = 'general'
+				axiosRequest()
+			},
+			health: function () {
+				app.newsCatagory.catagory = 'health'
+				axiosRequest()
+			},
+			science: function () {
+				app.newsCatagory.catagory = 'science'
+				axiosRequest()
+			},
+			sports: function () {
+				app.newsCatagory.catagory = 'sports'
+				axiosRequest()
+			},
+			technology: function () {
+				app.newsCatagory.catagory = 'technology'
+				axiosRequest()
+			}
 		}
 	}) // Vue ENDS
 
 	function axiosRequest () {
 		axios({
 		  method: 'get',
-		  url: 'http://newsapi.org/v2/top-headlines?country=nz&category=business&apiKey=e156c57afb23498ea5b1404034a6e785'
+		  url: 'http://newsapi.org/v2/top-headlines?country=' + app.newsCatagory.country + '&category=' + app.newsCatagory.catagory + '&apiKey=e156c57afb23498ea5b1404034a6e785'
 		})
 		  .then(function (response) {
-		    // console.log(response)
+		    console.log(response)
 				app.newsData = response;
-				console.log(app.newsData);
-				console.log('jdsjkadshjkadshjkads');
+				// console.log(response);
+				// console.log('jdsjkadshjkadshjkads');
 				app.news = response.data.articles;
 				getImage();
 				getTitle();
@@ -37,12 +75,16 @@ var axios = require('axios');
 
 
 
+
+
+
+
 	// getImage STARTS
 	function getImage () {
 		console.log('function works AGAIN');
 		var imageArray = [ ]
 		for (var i = 0; i < app.newsData.data.articles.length; i++) {
-			console.log(i)
+			// console.log(i)
 
 
 			imageArray.push(app.newsData.data.articles[i].urlToImage)
@@ -52,7 +94,7 @@ var axios = require('axios');
 		// console.log(imageArray + "this is arasdasdas")
 		app.image = imageArray;
 		// testing to see if the data is there
-		console.log(app.image);
+		// console.log(app.image);
 	}; // GetIMAGE ENDS
 
 
@@ -61,7 +103,7 @@ var axios = require('axios');
 		console.log('function works AGAIN');
 		var titleArray = [ ]
 		for (var i = 0; i < app.newsData.data.articles.length; i++) {
-			console.log(i)
+			// console.log(i)
 
 
 			titleArray.push(app.newsData.data.articles[i].title)
@@ -71,7 +113,7 @@ var axios = require('axios');
 		// console.log(imageArray + "this is arasdasdas")
 		app.title = titleArray;
 		// testing to see if the data is there
-		console.log(app.title);
+		// console.log(app.title);
 	}; // GetTitle ENDS
 
 
@@ -80,7 +122,7 @@ var axios = require('axios');
 		console.log('function works AGAIN');
 		var descriptionArray = [ ]
 		for (var i = 0; i < app.newsData.data.articles.length; i++) {
-			console.log(i)
+			// console.log(i)
 
 
 			descriptionArray.push(app.newsData.data.articles[i].description)
@@ -89,7 +131,7 @@ var axios = require('axios');
 		}
 		app.description = descriptionArray;
 		// testing to see if the data is there
-		console.log(app.description);
+		// console.log(app.description);
 	}; // getDesc ENDS
 
 
