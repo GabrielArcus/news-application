@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="app">
-		<div class="exampleButtons">
+		<!-- <div class="exampleButtons">
 			<h3 @click="usCatagory()" >US News</h3>
 			<h3 @click="business()" >business</h3>
 			<h3 @click="entertainment()" >entertainment</h3>
@@ -17,7 +17,7 @@
 			<h3 @click="science()" >science</h3>
 			<h3 @click="sports()" >sports</h3>
 			<h3 @click="technology()" >technology</h3>
-		</div>
+		</div> -->
 
 
 		<!-- Top navigation STARTS -->
@@ -30,13 +30,13 @@
 				Catergories
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">Business</a>
-					<a class="dropdown-item" href="#">Entertainment</a>
-					<a class="dropdown-item" href="#">General</a>
-					<a class="dropdown-item" href="#">Health</a>
-					<a class="dropdown-item" href="#">Science</a>
-					<a class="dropdown-item" href="#">Sport</a>
-					<a class="dropdown-item" href="#">Technology</a>
+					<a class="dropdown-item" @click="business()">Business</a>
+					<a class="dropdown-item" @click="entertainment()">Entertainment</a>
+					<a class="dropdown-item" @click="general()">General</a>
+					<a class="dropdown-item" @click="health()">Health</a>
+					<a class="dropdown-item" @click="science()">Science</a>
+					<a class="dropdown-item" @click="sports()">Sport</a>
+					<a class="dropdown-item" @click="technology()">Technology</a>
 				</div>
 			</div>
 			<form class="form-inline">
