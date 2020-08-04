@@ -18,6 +18,7 @@ var axios = require('axios');
 				catagory: 'business'
 			},
 			weather: false,
+			weatherIcon: false,
 			location: {
 				lat: -36.8506,
 				log: 174.7679
@@ -94,7 +95,13 @@ var axios = require('axios');
 			url: 'https://api.openweathermap.org/data/2.5/onecall?lat='+app.location.lat+'&lon='+app.location.lon+'&units=metric&exclude=hourly,minute&appid=66ce6f7e945db003aaa343f0bc010dc8'
 		})
 		.then(function (response) {
+			console.log(response)
+			console.log('dadadas')
 			app.weather = response.data
+			var iconCode = response.data.current.weather[0].icon;
+
+			app.weatherIcon = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+			console.log(app.weatherIcon);
 			console.log(app.weather);
 			endLoading()
 		});

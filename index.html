@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="loadingGIFContainer" id="loading" style="display:flex; align-items:center; justify-content:center; width:100%; height:100vh; position:absolute; top:0; left:0; z-index:-100;">
-		<img src="loading.gif" alt=""  width="20%">
+		<img src="loading.gif" alt=""  width="50%">
 	</div>
 	<div id="app" v-if="weather">
 
@@ -16,12 +16,12 @@
 		<!-- Top navigation STARTS -->
 		<nav class="navbar navbar-light bg-primary justify-content-between">
 		  <a class="navbar-brand logo text-white">Capital Daily</a>
-			<a style="color:white" >{{ weather.current.temp.toFixed(0) }}°C  / {{ weather.current.weather[0].description }}</a>
+			<a style="color:white" ><img src="" v-bind:src="weatherIcon" alt="" width="20%;">  {{ weather.current.temp.toFixed(0) }}°C  / {{ weather.current.weather[0].description }}</a>
 
 		<div class="d-flex align-content-center">
 			<div class="dropdown">
-				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Catergories
+				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:capitalize">
+				{{newsCatagory.catagory}}
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					<a class="dropdown-item" @click="business()">Business</a>
@@ -49,7 +49,7 @@
 				<!-- column ONE -->
 				<div class="col-6">
 					<ul class="">
-						<li v-for="item in news.slice(0 ,9)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+						<li v-for="item in news.slice(0, 9)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
 							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
 							<h2>{{ item.title }}</h2>
 							<h3>{{ item.author }}</h3>
@@ -60,7 +60,7 @@
 				<!-- colomn TWO -->
 				<div class="col-6">
 					<ul>
-						<li v-for="item in news.slice(10 ,19)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+						<li v-for="item in news.slice(10, 19)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
 							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
 							<h2>{{ item.title }}</h2>
 							<h3>{{ item.author }}</h3>
