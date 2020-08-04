@@ -13,6 +13,12 @@ var axios = require('axios');
 			title: false,
 			image: false,
 			description: false
+		},
+		mounted () {
+
+		},
+		methods: {
+			
 		}
 	}) // Vue ENDS
 

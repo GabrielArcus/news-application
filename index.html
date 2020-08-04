@@ -12,76 +12,67 @@
 
 		<!-- Top navigation STARTS -->
 		<nav class="navbar navbar-light bg-primary justify-content-between">
-		  <a class="navbar-brand logo">News</a>
-		  <form class="form-inline">
-		    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-		  </form>
+		  <a class="navbar-brand logo text-white">Capital Daily</a>
+
+		<div class="d-flex align-content-center">
+			<div class="dropdown">
+				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Catergories
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">Business</a>
+					<a class="dropdown-item" href="#">Entertainment</a>
+					<a class="dropdown-item" href="#">General</a>
+					<a class="dropdown-item" href="#">Health</a>
+					<a class="dropdown-item" href="#">Science</a>
+					<a class="dropdown-item" href="#">Sport</a>
+					<a class="dropdown-item" href="#">Technology</a>
+				</div>
+			</div>
+			<form class="form-inline">
+			   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			   <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+
 		</nav>
 		<!-- Top navigation ENDS -->
 
-		<!-- Articles section STARTS  -->
-		<div class="article-section container">
-			<div class="row justify-content-between">
-				<!-- Article card -->
-				<div class="article-card card" style="width: 18rem;">
-				  <img class="card-img-top" src="https://via.placeholder.com/150x100/Ohttps://placeholder.com/" alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
+		<!-- News list coloumns STARTS -->
+		<div class="container news-container">
+			<!-- Row STARTS -->
+			<div class="row">
+				<!-- column ONE -->
+				<div class="col-6">
+					<ul class="">
+						<li v-for="item in news.slice(0 ,9)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
+							<h2>{{ item.title }}</h2>
+							<h3>{{ item.author }}</h3>
+							<a v-bind:href="item.url" target="_blank">View Article</a>
+						</li>
+					</ul>
 				</div>
-				<!-- Article card -->
-				<div class="article-card card" style="width: 18rem;">
-				  <img class="card-img-top" src="https://via.placeholder.com/150x100/Ohttps://placeholder.com/" alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
+				<!-- colomn TWO -->
+				<div class="col-6">
+					<ul>
+						<li v-for="item in news.slice(10 ,19)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
+							<h2>{{ item.title }}</h2>
+							<h3>{{ item.author }}</h3>
+							<a v-bind:href="item.url" target="_blank">View Article</a>
+						</li>
+					</ul>
 				</div>
-				<!-- Article card -->
-				<div class="article-card card" style="width: 18rem;">
-				  <img class="card-img-top" src="https://via.placeholder.com/150x100/Ohttps://placeholder.com/" alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
-				</div>
-				<!-- Article card -->
-				<div class="article-card card" style="width: 18rem;">
-				  <img class="card-img-top" src="https://via.placeholder.com/150x100/Ohttps://placeholder.com/" alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
-				</div>
-				<!-- Article card -->
-				<div class="article-card card" style="width: 18rem;">
-				  <img class="card-img-top" src="https://via.placeholder.com/150x100/Ohttps://placeholder.com/" alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
-				</div>
-				<!-- Article card -->
-				<div class="article-card card" style="width: 18rem;">
-				  <img class="card-img-top" src="https://via.placeholder.com/150x100/Ohttps://placeholder.com/" alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
-				</div>
+			</div>
+		</div>
+		<!-- News list coloumns ENDS -->
 
 
-			</div><!-- Row ENDS -->
-		</div><!-- Articles section ENDS  -->
 	</div>
+	<!-- App ENDS -->
+
+
 
 
 
