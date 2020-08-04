@@ -16,6 +16,11 @@ var axios = require('axios');
 			newsCatagory: {
 				country: 'nz',
 				catagory: 'business'
+			},
+			weather: false,
+			location: {
+				lat: -36.8506,
+				log: 174.7679
 			}
 		},
 		methods: {
@@ -54,20 +59,60 @@ var axios = require('axios');
 		}
 	}) // Vue ENDS
 
+	// End loading STARTS
+	function endLoading() {
+		var loadingGIF = document.getElementById('loading')
+		$(loadingGIF).hide()
+	} // End loading ENDS
+
+
+	// Get location STARTS
+	function getLocation() {
+		if (navigator.geolocation) {
+			console.log('geolocation is working')
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			console.log('not working')
+		}
+	} // Get location ENDS
+
+	function showPosition(position) {
+		console.log('showPosition working')
+	  app.location = {
+			lat: position.coords.latitude,
+			lon: position.coords.longitude
+		}
+		getWeatherData()
+	} // location Stuff ENDS
+
+
+
+	// Get Weather Data STARTS
+	function getWeatherData () {
+		axios({
+		  method: 'get',
+			url: 'https://api.openweathermap.org/data/2.5/onecall?lat='+app.location.lat+'&lon='+app.location.lon+'&units=metric&exclude=hourly,minute&appid=66ce6f7e945db003aaa343f0bc010dc8'
+		})
+		.then(function (response) {
+			app.weather = response.data
+			console.log(app.weather);
+			endLoading()
+		});
+	} // Get weather data ENDS
+
+
+	// Get news api
 	function axiosRequest () {
 		axios({
 		  method: 'get',
 		  url: 'http://newsapi.org/v2/top-headlines?country=' + app.newsCatagory.country + '&category=' + app.newsCatagory.catagory + '&apiKey=e156c57afb23498ea5b1404034a6e785'
 		})
 		  .then(function (response) {
-		    console.log(response)
+		    // console.log(response)
 				app.newsData = response;
 				// console.log(response);
 				// console.log('jdsjkadshjkadshjkads');
 				app.news = response.data.articles;
-				getImage();
-				getTitle();
-				getDesc();
 		  }); // Request ENDS
 	}
 	// Making an axios request
@@ -78,70 +123,10 @@ var axios = require('axios');
 
 
 
-
-	// getImage STARTS
-	function getImage () {
-		console.log('function works AGAIN');
-		var imageArray = [ ]
-		for (var i = 0; i < app.newsData.data.articles.length; i++) {
-			// console.log(i)
-
-
-			imageArray.push(app.newsData.data.articles[i].urlToImage)
-
-
-		}
-		// console.log(imageArray + "this is arasdasdas")
-		app.image = imageArray;
-		// testing to see if the data is there
-		// console.log(app.image);
-	}; // GetIMAGE ENDS
-
-
-	// getTitle STARTS
-	function getTitle () {
-		console.log('function works AGAIN');
-		var titleArray = [ ]
-		for (var i = 0; i < app.newsData.data.articles.length; i++) {
-			// console.log(i)
-
-
-			titleArray.push(app.newsData.data.articles[i].title)
-
-
-		}
-		// console.log(imageArray + "this is arasdasdas")
-		app.title = titleArray;
-		// testing to see if the data is there
-		// console.log(app.title);
-	}; // GetTitle ENDS
-
-
-	// getDesc STARTS
-	function getDesc () {
-		console.log('function works AGAIN');
-		var descriptionArray = [ ]
-		for (var i = 0; i < app.newsData.data.articles.length; i++) {
-			// console.log(i)
-
-
-			descriptionArray.push(app.newsData.data.articles[i].description)
-
-
-		}
-		app.description = descriptionArray;
-		// testing to see if the data is there
-		// console.log(app.description);
-	}; // getDesc ENDS
-
-
-
-
-
-
-
 	// Calling the functions
+	getLocation()
 	axiosRequest()
+
 
 
 })(); // iffe ENDS

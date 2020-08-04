@@ -7,22 +7,16 @@
 	<title>News Application</title>
 </head>
 <body>
-	<div id="app">
-		<!-- <div class="exampleButtons">
-			<h3 @click="usCatagory()" >US News</h3>
-			<h3 @click="business()" >business</h3>
-			<h3 @click="entertainment()" >entertainment</h3>
-			<h3 @click="general()" >general</h3>
-			<h3 @click="health()" >health</h3>
-			<h3 @click="science()" >science</h3>
-			<h3 @click="sports()" >sports</h3>
-			<h3 @click="technology()" >technology</h3>
-		</div> -->
+	<div class="loadingGIFContainer" id="loading" style="display:flex; align-items:center; justify-content:center; width:100%; height:100vh; position:absolute; top:0; left:0; z-index:-100;">
+		<img src="loading.gif" alt=""  width="20%">
+	</div>
+	<div id="app" v-if="weather">
 
 
 		<!-- Top navigation STARTS -->
 		<nav class="navbar navbar-light bg-primary justify-content-between">
 		  <a class="navbar-brand logo text-white">Capital Daily</a>
+			<a style="color:white" >{{ weather.current.temp.toFixed(0) }}°C  / {{ weather.current.weather[0].description }}</a>
 
 		<div class="d-flex align-content-center">
 			<div class="dropdown">
