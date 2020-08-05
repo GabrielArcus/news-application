@@ -2,6 +2,7 @@
 // Imports
 var axios = require('axios');
 
+
 // iffe STARTS
 (function(){
 	// Vue Application
@@ -13,6 +14,7 @@ var axios = require('axios');
 			title: false,
 			image: false,
 			description: false,
+			contentDisplay: false,
 			newsCatagory: {
 				country: 'nz',
 				catagory: 'business'
@@ -28,6 +30,22 @@ var axios = require('axios');
 		methods: {
 			usCatagory: function () {
 				app.newsCatagory.country = 'us'
+				axiosRequest()
+			},
+			ausCatergory: function () {
+				app.newsCatagory.country = 'au'
+				axiosRequest()
+			},
+			nzCatergory: function () {
+				app.newsCatagory.country = 'nz'
+				axiosRequest()
+			},
+			canCatergory: function () {
+				app.newsCatagory.country = 'ca'
+				axiosRequest()
+			},
+			ukCatergory: function () {
+				app.newsCatagory.country = 'gb'
 				axiosRequest()
 			},
 			business: function () {
@@ -134,17 +152,11 @@ var axios = require('axios');
 		  .then(function (response) {
 		    // console.log(response)
 				app.newsData = response;
-				// console.log(response);
-				// console.log('jdsjkadshjkadshjkads');
+				// console.log(app.newsData);
 				app.news = response.data.articles;
 		  }); // Request ENDS
 	}
 	// Making an axios request
-
-
-
-
-
 
 
 	// Calling the functions

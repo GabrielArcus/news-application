@@ -47,9 +47,9 @@
 			<!-- Row STARTS -->
 			<div class="row">
 				<!-- column ONE -->
-				<div class="col-6">
+				<div class="col-12 col-sm-12 col-md-6">
 					<ul class="">
-						<li v-for="item in news.slice(0, 9)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+						<li v-for="item in news.slice(0, 9)" :key="item.message">
 							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
 							<h2>{{ item.title }}</h2>
 							<h3>{{ item.author }}</h3>
@@ -58,9 +58,9 @@
 					</ul>
 				</div>
 				<!-- colomn TWO -->
-				<div class="col-6">
+				<div class="col-12 col-sm-12 col-md-6">
 					<ul>
-						<li v-for="item in news.slice(10, 19)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+						<li v-for="item in news.slice(10, 19)" :key="item.message">
 							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
 							<h2>{{ item.title }}</h2>
 							<h3>{{ item.author }}</h3>

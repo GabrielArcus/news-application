@@ -16,6 +16,12 @@
 ul {
     padding: 10px !important;
 }
+li {
+    list-style:none;
+    margin-bottom:5%;
+    width:100%;
+    border-bottom:2px solid darkgrey;
+}
 
 // Footer
 .footer-icon-container {
