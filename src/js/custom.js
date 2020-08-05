@@ -48,6 +48,14 @@ var axios = require('axios');
 				app.newsCatagory.country = 'gb'
 				axiosRequest()
 			},
+			singCatergory: function () {
+				app.newsCatagory.country = 'sg'
+				axiosRequest()
+			},
+			frCatergory: function () {
+				app.newsCatagory.country = 'fr'
+				axiosRequest()
+			},
 			business: function () {
 				app.newsCatagory.catagory = 'business'
 				axiosRequest()

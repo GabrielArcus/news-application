@@ -33,6 +33,20 @@
 					<a class="dropdown-item" @click="technology()">Technology</a>
 				</div>
 			</div>
+			<div class="dropdown">
+				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:capitalize">
+				Country
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" @click="usCatagory()">United States</a>
+					<a class="dropdown-item" @click="ausCatergory()">Australia</a>
+					<a class="dropdown-item" @click="nzCatergory()">New Zealand</a>
+					<a class="dropdown-item" @click="canCatergory()">Canada</a>
+					<a class="dropdown-item" @click="ukCatergory()">United Kingdom</a>
+					<a class="dropdown-item" @click="singCatergory()">Singapore</a>
+					<a class="dropdown-item" @click="frCatergory()">France</a>
+				</div>
+			</div>
 			<!-- <form class="form-inline"> -->
 			   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBar" v-on:keyup.enter="search">
 			   <button class="btn btn-success my-2 my-sm-0" @click="search()" v-on:keyup.13="search">Search</button>
