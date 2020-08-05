@@ -34,8 +34,8 @@
 				</div>
 			</div>
 			<!-- <form class="form-inline"> -->
-			   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBar">
-			   <button class="btn btn-success my-2 my-sm-0" @click="search()">Search</button>
+			   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBar" v-on:keyup.enter="search">
+			   <button class="btn btn-success my-2 my-sm-0" @click="search()" v-on:keyup.13="search">Search</button>
 			<!-- </form> -->
 		</div>
 
