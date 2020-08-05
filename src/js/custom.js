@@ -2,6 +2,7 @@
 // Imports
 var axios = require('axios');
 
+
 // iffe STARTS
 (function(){
 	// Vue Application
@@ -13,6 +14,7 @@ var axios = require('axios');
 			title: false,
 			image: false,
 			description: false,
+			contentDisplay: false,
 			newsCatagory: {
 				country: 'nz',
 				catagory: 'business'
@@ -21,6 +23,22 @@ var axios = require('axios');
 		methods: {
 			usCatagory: function () {
 				app.newsCatagory.country = 'us'
+				axiosRequest()
+			},
+			ausCatergory: function () {
+				app.newsCatagory.country = 'au'
+				axiosRequest()
+			},
+			nzCatergory: function () {
+				app.newsCatagory.country = 'nz'
+				axiosRequest()
+			},
+			canCatergory: function () {
+				app.newsCatagory.country = 'ca'
+				axiosRequest()
+			},
+			ukCatergory: function () {
+				app.newsCatagory.country = 'gb'
 				axiosRequest()
 			},
 			business: function () {
@@ -51,6 +69,7 @@ var axios = require('axios');
 				app.newsCatagory.catagory = 'technology'
 				axiosRequest()
 			}
+
 		}
 	}) // Vue ENDS
 
@@ -60,10 +79,9 @@ var axios = require('axios');
 		  url: 'http://newsapi.org/v2/top-headlines?country=' + app.newsCatagory.country + '&category=' + app.newsCatagory.catagory + '&apiKey=e156c57afb23498ea5b1404034a6e785'
 		})
 		  .then(function (response) {
-		    console.log(response)
+		    // console.log(response)
 				app.newsData = response;
-				// console.log(response);
-				// console.log('jdsjkadshjkadshjkads');
+				// console.log(app.newsData);
 				app.news = response.data.articles;
 				getImage();
 				getTitle();
@@ -77,11 +95,9 @@ var axios = require('axios');
 
 
 
-
-
 	// getImage STARTS
 	function getImage () {
-		console.log('function works AGAIN');
+		// console.log('function works AGAIN');
 		var imageArray = [ ]
 		for (var i = 0; i < app.newsData.data.articles.length; i++) {
 			// console.log(i)
@@ -100,7 +116,7 @@ var axios = require('axios');
 
 	// getTitle STARTS
 	function getTitle () {
-		console.log('function works AGAIN');
+		// console.log('function works AGAIN');
 		var titleArray = [ ]
 		for (var i = 0; i < app.newsData.data.articles.length; i++) {
 			// console.log(i)
@@ -119,7 +135,7 @@ var axios = require('axios');
 
 	// getDesc STARTS
 	function getDesc () {
-		console.log('function works AGAIN');
+		// console.log('function works AGAIN');
 		var descriptionArray = [ ]
 		for (var i = 0; i < app.newsData.data.articles.length; i++) {
 			// console.log(i)

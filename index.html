@@ -8,42 +8,40 @@
 </head>
 <body>
 	<div id="app">
-		<!-- <div class="exampleButtons">
-			<h3 @click="usCatagory()" >US News</h3>
-			<h3 @click="business()" >business</h3>
-			<h3 @click="entertainment()" >entertainment</h3>
-			<h3 @click="general()" >general</h3>
-			<h3 @click="health()" >health</h3>
-			<h3 @click="science()" >science</h3>
-			<h3 @click="sports()" >sports</h3>
-			<h3 @click="technology()" >technology</h3>
-		</div> -->
-
 
 		<!-- Top navigation STARTS -->
 		<nav class="navbar navbar-light bg-primary justify-content-between">
 		  <a class="navbar-brand logo text-white">Capital Daily</a>
-
-		<div class="d-flex align-content-center">
-			<div class="dropdown">
-				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Catergories
-				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" @click="business()">Business</a>
-					<a class="dropdown-item" @click="entertainment()">Entertainment</a>
-					<a class="dropdown-item" @click="general()">General</a>
-					<a class="dropdown-item" @click="health()">Health</a>
-					<a class="dropdown-item" @click="science()">Science</a>
-					<a class="dropdown-item" @click="sports()">Sport</a>
-					<a class="dropdown-item" @click="technology()">Technology</a>
+			<div class="d-flex justify-content-center flex-column flex-md-row">
+				<div class="dropdown">
+					<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Catergories
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" @click="business()">Business</a>
+						<a class="dropdown-item" @click="entertainment()">Entertainment</a>
+						<a class="dropdown-item" @click="general()">General</a>
+						<a class="dropdown-item" @click="health()">Health</a>
+						<a class="dropdown-item" @click="science()">Science</a>
+						<a class="dropdown-item" @click="sports()">Sport</a>
+						<a class="dropdown-item" @click="technology()">Technology</a>
+					</div>
+				</div>
+				<div class="search-bar">
+					<div class="dropdown">
+						<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Country
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" @click="usCatagory()">United States</a>
+							<a class="dropdown-item" @click="ausCatergory()">Australia</a>
+							<a class="dropdown-item" @click="nzCatergory()">New Zealand</a>
+							<a class="dropdown-item" @click="canCatergory()">Canada</a>
+							<a class="dropdown-item" @click="ukCatergory()">United Kingdom</a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<form class="form-inline">
-			   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			   <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
-		</div>
 
 		</nav>
 		<!-- Top navigation ENDS -->
@@ -53,9 +51,9 @@
 			<!-- Row STARTS -->
 			<div class="row">
 				<!-- column ONE -->
-				<div class="col-6">
+				<div class="col-12 col-sm-12 col-md-6">
 					<ul class="">
-						<li v-for="item in news.slice(0 ,9)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+						<li v-for="item in news.slice(0, 9)" :key="item.message">
 							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
 							<h2>{{ item.title }}</h2>
 							<h3>{{ item.author }}</h3>
@@ -64,9 +62,9 @@
 					</ul>
 				</div>
 				<!-- colomn TWO -->
-				<div class="col-6">
+				<div class="col-12 col-sm-12 col-md-6">
 					<ul>
-						<li v-for="item in news.slice(10 ,19)" :key="item.message" style="list-style:none; margin-bottom:5%; width:100%; border-bottom:2px solid darkgrey;">
+						<li v-for="item in news.slice(10, 19)" :key="item.message">
 							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
 							<h2>{{ item.title }}</h2>
 							<h3>{{ item.author }}</h3>
