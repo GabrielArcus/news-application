@@ -22,7 +22,8 @@ var axios = require('axios');
 			location: {
 				lat: -36.8506,
 				log: 174.7679
-			}
+			},
+			searchQuery: false
 		},
 		methods: {
 			usCatagory: function () {
@@ -56,8 +57,24 @@ var axios = require('axios');
 			technology: function () {
 				app.newsCatagory.catagory = 'technology'
 				axiosRequest()
-			}
-		}
+			},
+			search: function () {
+				var searchQuery = document.getElementById("searchBar").value
+				app.searchQuery = searchQuery
+				console.log(searchQuery)
+				if (searchQuery != null) {
+					console.log('search working')
+					axios({
+						method: 'get',
+						url: 'https://newsapi.org/v2/everything?q='+ app.searchQuery + '&apiKey=e156c57afb23498ea5b1404034a6e785'
+					})
+						.then(function (response) {
+							app.newsData = response;
+							app.news = response.data.articles;
+						}); // Request ENDS
+				} // If ENDS
+			} // Search Functuin ENDS
+		} // Methods ENDS
 	}) // Vue ENDS
 
 	// End loading STARTS
