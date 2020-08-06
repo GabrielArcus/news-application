@@ -16,10 +16,11 @@
 
 		<!-- Top navigation STARTS -->
 		<nav class="navbar navbar-light bg-primary justify-content-between">
-		  <a class="navbar-brand logo text-white">QuickFix News</a>
+		  <a class="navbar-brand logo text-white" v-on:click="showHomePage()">QuickFix News</a>
 			<a style="color:white" ><img src="" v-bind:src="weatherIcon" alt="" width="20%;">  {{ weather.current.temp.toFixed(0) }}°C  / {{ weather.current.weather[0].description }}</a>
 
 		<div class="d-flex align-content-center">
+			<button id="about-btn" class="btn btn-light" v-on:click="showAboutPage()">About</button>
 			<div class="dropdown">
 				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:capitalize">
 				{{newsCatagory.catagory}}
@@ -58,7 +59,7 @@
 		<!-- Top navigation ENDS -->
 
 		<!-- News list coloumns STARTS -->
-		<div class="container news-container">
+		<div class="container news-container" v-if="displayHome">
 			<!-- Row STARTS -->
 			<div class="row">
 				<!-- column ONE -->
@@ -88,6 +89,54 @@
 			</div>
 		</div>
 		<!-- News list coloumns ENDS -->
+
+		<!-- About us STARTS -->
+		<div class="about-ui" v-if="displayAbout">
+			<div class="page-title">
+				<h2>Meet the Team</h2>
+			</div>
+		
+			<div class="about-section container">
+				<div class="d-flex justify-content-between">
+		
+					<div class="about-us card">
+						<img class="card-img-top" src="https://via.placeholder.com/400x350/Ohttps://placeholder.com/" alt="Card image cap">
+						<div class="card-body">
+							<p><span style="color: #26ade4;"><span style="font-size: x-large;"><em>Developer One</em></span></span></p>
+							<p>Executive Developer<br>
+								<a href="mailto:exe.developer@newsapp.com" target="_blank">exe.developer@newsapp.com</a></p>
+							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+							Dolor quo beatae doloremque, ipsum recusandae aspernatur quod ipsam maiores 
+							fugit exercitationem harum itaque labore sed ratione animi illo rerum non eaque.</p>
+				</div>
+			  </div>
+		
+				<div class="about-us card">
+					<img class="card-img-top" src="https://via.placeholder.com/400x350/Ohttps://placeholder.com/" alt="Card image cap">
+					<div class="card-body">
+						<p><span style="color: #26ade4;"><span style="font-size: x-large;"><em>Developer Two</em></span></span></p>
+						<p>Project Manager<br>
+							<a href="mailto:management@newsapp.com" target="_blank">management@newsapp.com</a></p>
+						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+							Dolor quo beatae doloremque, ipsum recusandae aspernatur quod ipsam maiores 
+							fugit exercitationem harum itaque labore sed ratione animi illo rerum non eaque.</p>
+				</div>
+			  </div>
+		
+				<div class="about-us card">
+					<img class="card-img-top" src="https://via.placeholder.com/400x350/Ohttps://placeholder.com/" alt="Card image cap">
+					<div class="card-body">
+						<p><span style="color: #26ade4;"><span style="font-size: x-large;"><em>Developer Three</em></span></span></p>
+						<p>Senior Developer<br>
+							<a href="mailto:senior.developer@newsapp.com" target="_blank">senior.developer@newsapp.com</a></p>
+						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+							Dolor quo beatae doloremque, ipsum recusandae aspernatur quod ipsam maiores 
+							fugit exercitationem harum itaque labore sed ratione animi illo rerum non eaque.</p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div> <!-- About us ENDS -->
 
 
 	</div>

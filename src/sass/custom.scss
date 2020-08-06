@@ -4,6 +4,7 @@
 .logo {
     font-weight: bolder;
     font-size: 25px;
+    cursor: pointer;
 }
 .dropdown {
     margin-right: 10px;
@@ -33,4 +34,57 @@ li {
 .footer-blurb {
     padding-bottom: 20px;
 }
-// custom sass and css
+// ~~~~~~~~~~~~~~~~~~~~~~ custom sass and css ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Dev cards
+.about-us {
+    margin-top: 150px;
+    width: 18rem;
+}
+
+.page-title {
+   border-bottom: solid 1px #eee;
+   padding: 16px 0;
+   margin-bottom: 40px;
+   position: relative;
+}
+
+.page-title h2 {
+   margin-left: 150px;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   font-size: 38px;
+   line-height: 36px;
+   font-style: italic;
+   font-family: georgia;
+}
+
+.page-title h2:hover {
+   cursor: default;
+}
+
+.page-title a {
+   text-decoration: none;
+}
+
+.page-title p {
+   margin-bottom: 15px;
+}
+
+.about-section:hover {
+   cursor: default;
+}
+
+body {
+   margin: 0 auto;
+   background: #fff;
+   overflow-x: hidden;
+   height: 100%;
+   color: #555;
+}
+
+// About Button
+
+#about-btn {
+    margin-right: 0.6rem;
+}

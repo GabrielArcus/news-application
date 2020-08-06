@@ -15,6 +15,8 @@ var axios = require('axios');
 			image: false,
 			description: false,
 			contentDisplay: false,
+			displayHome: true,
+			displayAbout: false,
 			newsCatagory: {
 				country: 'nz',
 				catagory: 'business'
@@ -83,6 +85,16 @@ var axios = require('axios');
 			technology: function () {
 				app.newsCatagory.catagory = 'technology'
 				axiosRequest()
+			},
+			showAboutPage: function () {
+				console.log('About button working')
+				this.displayAbout = true;
+				this.displayHome = false;
+			},
+			showHomePage: function () {
+				console.log('Home button working')
+				this.displayAbout = false;
+				this.displayHome = true;
 			},
 			search: function () {
 				var searchQuery = document.getElementById("searchBar").value
